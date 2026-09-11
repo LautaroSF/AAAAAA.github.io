@@ -64,7 +64,10 @@ nav ul {
     justify-content: center;
 }
 
-nav ul li a {
+/* 1. Estados base y visitado (:link y :visited) */
+nav ul li a, 
+nav ul li a:link, 
+nav ul li a:visited {
     display: block;
     padding: 1rem 2rem;
     color: #fff;
@@ -73,8 +76,20 @@ nav ul li a {
     transition: background-color 0.3s;
 }
 
-nav ul li a:hover, nav ul li a.activo {
+/* 2. Estado al pasar el cursor por encima (:hover) */
+nav ul li a:hover {
     background-color: #555;
+}
+
+/* 3. Estado al momento exacto de hacer clic (:active) */
+nav ul li a:active {
+    background-color: #777;
+}
+
+/* 4. Clase para marcar la página actual en el menú */
+nav ul li a.activo {
+    background-color: #555;
+    border-bottom: 3px solid #fff;
 }
 
 /* --- ESTILOS DE CONTENIDO --- */
