@@ -1,0 +1,59 @@
+/* === Estilos para Formularios del Ejercicio === */
+.caja-formulario, .caja-resultados {
+    background-color: #f9f9f9;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-bottom: 1.5rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border: none;
+}
+
+label {
+    font-weight: bold;
+    color: #444;
+}
+
+input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #222;
+}
+
+button:disabled, fieldset:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+#area-resultados {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-left: 4px solid #222;
+    display: none; /* Se mostrará con JS */
+}
+
+#btn-reiniciar {
+    background-color: #d9534f;
+    margin-top: 2rem;
+    width: 100%;
+}
+#btn-reiniciar:hover:not(:disabled) { background-color: #c9302c; }
