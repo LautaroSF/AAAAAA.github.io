@@ -2,89 +2,101 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ejercicio | Rafael Lozano-Hemmer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos | Rafael Lozano-Hemmer</title>
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
     <div class="contenedor-principal">
         <header>
+            <h1>Datos y Experimentación</h1>
+            <img style="width: 150px; display: block; margin: 0 auto; border-radius: 50%;" src="../img/lozano-hemmer.jpg" alt="Foto del artista Rafael Lozano-Hemmer"> 
             <nav>
                 <ul>
                     <li><a href="../index.html">Inicio</a></li>
                     <li><a href="../galeria/index.html">Galería</a></li>
-                    <li><a href="index.html" class="activo">Ejercicio</a></li>
+                    <li><a href="index.html" class="activo">Datos</a></li>
                 </ul>
             </nav>
         </header>
-        
-        <main class="seccion-ejercicio">
-            <header>
-                <h2>Sistema de Control de Luces Móviles</h2>
-                <p>Siga los pasos para ingresar los datos y calcular los consumos eléctricos de las instalaciones.</p>
-            </header>
 
-            <div class="dos-columnas">
-                <!-- Columna Izquierda: Formularios -->
-                <section class="columna-mayor">
-                    <!-- PASO 1: Configuración General -->
-                    <article class="caja-formulario">
-                        <h3>Paso 1: Parámetros Generales</h3>
-                        <form id="form-config">
-                            <label for="cant-obras">Cantidad de obras a desarrollar:</label>
-                            <input type="number" id="cant-obras" min="1" required>
-
-                            <label for="consumo-luz">Consumo eléctrico por luz/hora (kW):</label>
-                            <input type="number" id="consumo-luz" step="0.01" min="0.01" required>
-
-                            <label for="costo-kwh">Costo por kWh ($):</label>
-                            <input type="number" id="costo-kwh" step="0.01" min="0.01" required>
-
-                            <button type="submit" id="btn-config">Guardar Parámetros</button>
-                        </form>
-                    </article>
-
-                    <!-- PASO 2: Ingreso de Obras (Deshabilitado por defecto) -->
-                    <article class="caja-formulario">
-                        <h3>Paso 2: Datos de las Obras</h3>
-                        <p class="destacado" id="indicador-obras">Esperando parámetros generales...</p>
-                        <form id="form-obras">
-                            <fieldset id="fieldset-obras" disabled>
-                                <label for="nombre-obra">Nombre de la obra:</label>
-                                <input type="text" id="nombre-obra" required>
-
-                                <label for="cant-luces">Cantidad de luces móviles:</label>
-                                <input type="number" id="cant-luces" min="1" required>
-
-                                <label for="tiempo-horas">Horas de funcionamiento al día:</label>
-                                <input type="number" id="tiempo-horas" min="1" required>
-
-                                <button type="submit" id="btn-agregar-obra">Agregar Obra</button>
-                            </fieldset>
-                        </form>
-                    </article>
+        <main class="layout-2-cols">
+            <!-- Columna Menor (Aside) -->
+            <aside>
+                <h2>Datos Curiosos</h2>
+                <button id="btn-dato-curioso" class="btn" style="width:100%; margin-bottom:1rem;">Generar Dato al Azar</button>
+                <div id="display-dato-curioso" style="font-style: italic; background:#fff; padding:1rem; border-radius:5px;">
+                    Haz clic en el botón para descubrir un dato sobre el artista.
+                </div>
+            </aside>
+                 
+            <!-- Columna Mayor (Article) -->
+            <article>
+                <section>
+                    <h2>El espectador como protagonista</h2>
+                    <p>En la obra de Rafael Lozano-Hemmer, el espectador ocupa un rol central. Las piezas están diseñadas para activarse únicamente a través de la participación, lo que transforma la experiencia artística en un proceso compartido.</p>
                 </section>
-
-                <!-- Columna Derecha: Controles y Resultados -->
-                <section class="columna-menor caja-resultados">
-                    <h3>Paso 3: Resultados</h3>
-                    <button id="btn-calcular" disabled>Calcular Resultados</button>
+                
+                <!-- SECCIÓN DEL EJERCICIO -->
+                <section style="border: 2px solid #333; padding: 1.5rem; border-radius: 10px;">
+                    <h2>Sistema de Control de Luces Móviles</h2>
+                    <p>Ingrese los parámetros globales para calcular consumos.</p>
                     
-                    <div id="area-resultados">
-                        <!-- Aquí se inyectarán los resultados con JS -->
+                    <!-- FASE 1: Parámetros Generales -->
+                    <div id="form-configuracion">
+                        <div class="form-group">
+                            <label>Cantidad total de obras a evaluar:</label>
+                            <input type="number" id="input-cantidad-obras" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label>Consumo por luz móvil (kWh):</label>
+                            <input type="number" id="input-consumo-luz" step="0.1" min="0.1">
+                        </div>
+                        <div class="form-group">
+                            <label>Costo por kWh ($):</label>
+                            <input type="number" id="input-costo-kwh" step="0.1" min="0.1">
+                        </div>
+                        <button id="btn-iniciar-carga" class="btn">Iniciar Carga de Obras</button>
                     </div>
 
-                    <button id="btn-reiniciar" disabled>Reiniciar Sistema</button>
+                    <hr style="margin: 2rem 0;">
+
+                    <!-- FASE 2: Carga por Obra (Deshabilitado inicialmente) -->
+                    <div id="form-obras" style="opacity: 0.5; pointer-events: none;">
+                        <h3 id="titulo-obra-actual">Cargando Obra 1 de X</h3>
+                        <div class="form-group">
+                            <label>Nombre de la Obra:</label>
+                            <input type="text" id="input-nombre-obra">
+                        </div>
+                        <div class="form-group">
+                            <label>Cantidad de Luces Móviles:</label>
+                            <input type="number" id="input-cant-luces" min="1">
+                        </div>
+                        <div class="form-group">
+                            <label>Tiempo de funcionamiento por día (hs):</label>
+                            <input type="number" id="input-horas" min="1">
+                        </div>
+                        <button id="btn-agregar-obra" class="btn">Agregar Obra</button>
+                    </div>
+
+                    <!-- FASE 3: Resultados -->
+                    <div id="resultados-ejercicio">
+                        <h3>Resultados del Análisis</h3>
+                        <p id="res-consumo"></p>
+                        <p id="res-mayor-tiempo"></p>
+                        <p id="res-porcentaje"></p>
+                        <button id="btn-reiniciar" class="btn" style="margin-top: 1rem;">Reiniciar Sistema</button>
+                    </div>
                 </section>
-            </div>
+            </article>
         </main>
-            
+        
         <footer>
             <p>Para contactarse escribir a <a href="mailto:rafael@artedigital.com">rafael@artedigital.com</a></p>
         </footer>
     </div>
 
-    <!-- Enlace al nuevo archivo JS -->
-    <script src="../js/ejercicio.js"></script>
+    <!-- Archivo JS único para la funcionalidad de esta página -->
+    <script src="../js/datos.js"></script>
 </body>
 </html>
