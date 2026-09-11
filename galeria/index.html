@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Galería | Rafael Lozano-Hemmer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="index.html" class="activo">Galería</a></li>
+                    <li><a href="../datos/index.html">Datos</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main class="dos-columnas">
+            <section class="columna-menor">
+                <h2>Obras y conceptos clave</h2>
+                <ul>
+                    <li>Pulse Room</li>
+                    <li>Vectorial Elevation</li>
+                    <li>33 Questions per Minute</li>
+                    <li>Body Movies</li>
+                    <li>Interactividad</li>
+                    <li>Arte en espacio público</li>
+                </ul>
+                <button id="btn-diseno">Cambiar Diseño</button>
+            </section>
+            
+            <!-- Aquí JavaScript inyectará las obras -->
+            <section class="columna-mayor" id="contenedor-galeria">
+                <h2>Galería de Obras</h2>
+                <!-- Las imágenes se cargarán dinámicamente desde JS -->
+            </section>
+        </main>
+            
+        <footer>
+            <p>Para contactarse escribir a <a href="mailto:rafael@artedigital.com">rafael@artedigital.com</a></p>
+        </footer>
+    </div>
+
+    <!-- Enlace al archivo JS -->
+    <script src="../js/galeria.js"></script>
+</body>
+</html>
