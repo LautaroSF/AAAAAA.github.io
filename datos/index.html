@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio | Rafael Lozano-Hemmer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/estilos.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../galeria/index.html">Galería</a></li>
+                    <li><a href="index.html" class="activo">Ejercicio</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main class="seccion-ejercicio">
+            <header>
+                <h2>Sistema de Control de Luces Móviles</h2>
+                <p>Siga los pasos para ingresar los datos y calcular los consumos eléctricos de las instalaciones.</p>
+            </header>
+
+            <div class="dos-columnas">
+                <!-- Columna Izquierda: Formularios -->
+                <section class="columna-mayor">
+                    <!-- PASO 1: Configuración General -->
+                    <article class="caja-formulario">
+                        <h3>Paso 1: Parámetros Generales</h3>
+                        <form id="form-config">
+                            <label for="cant-obras">Cantidad de obras a desarrollar:</label>
+                            <input type="number" id="cant-obras" min="1" required>
+
+                            <label for="consumo-luz">Consumo eléctrico por luz/hora (kW):</label>
+                            <input type="number" id="consumo-luz" step="0.01" min="0.01" required>
+
+                            <label for="costo-kwh">Costo por kWh ($):</label>
+                            <input type="number" id="costo-kwh" step="0.01" min="0.01" required>
+
+                            <button type="submit" id="btn-config">Guardar Parámetros</button>
+                        </form>
+                    </article>
+
+                    <!-- PASO 2: Ingreso de Obras (Deshabilitado por defecto) -->
+                    <article class="caja-formulario">
+                        <h3>Paso 2: Datos de las Obras</h3>
+                        <p class="destacado" id="indicador-obras">Esperando parámetros generales...</p>
+                        <form id="form-obras">
+                            <fieldset id="fieldset-obras" disabled>
+                                <label for="nombre-obra">Nombre de la obra:</label>
+                                <input type="text" id="nombre-obra" required>
+
+                                <label for="cant-luces">Cantidad de luces móviles:</label>
+                                <input type="number" id="cant-luces" min="1" required>
+
+                                <label for="tiempo-horas">Horas de funcionamiento al día:</label>
+                                <input type="number" id="tiempo-horas" min="1" required>
+
+                                <button type="submit" id="btn-agregar-obra">Agregar Obra</button>
+                            </fieldset>
+                        </form>
+                    </article>
+                </section>
+
+                <!-- Columna Derecha: Controles y Resultados -->
+                <section class="columna-menor caja-resultados">
+                    <h3>Paso 3: Resultados</h3>
+                    <button id="btn-calcular" disabled>Calcular Resultados</button>
+                    
+                    <div id="area-resultados">
+                        <!-- Aquí se inyectarán los resultados con JS -->
+                    </div>
+
+                    <button id="btn-reiniciar" disabled>Reiniciar Sistema</button>
+                </section>
+            </div>
+        </main>
+            
+        <footer>
+            <p>Para contactarse escribir a <a href="mailto:rafael@artedigital.com">rafael@artedigital.com</a></p>
+        </footer>
+    </div>
+
+    <!-- Enlace al nuevo archivo JS -->
+    <script src="../js/ejercicio.js"></script>
+</body>
+</html>
