@@ -1,5 +1,5 @@
-/* Importación de tipografía de Google para títulos y destacados */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+/* Importación de tipografía de Google Barlow para títulos y destacados */
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,700;1,400&display=swap');
 
 /* Reset básico y variables */
 * {
@@ -24,9 +24,9 @@ body {
     padding: 2rem 0; /* Margen para visualizar el fondo */
 }
 
-/* Tipografía de Google SOLO en títulos y destacados */
-h1, h2, h3, header strong, blockquote, .destacado {
-    font-family: 'Oswald', sans-serif;
+/* Tipografía de Google SOLO en títulos, destacados y botones */
+h1, h2, h3, header strong, blockquote, .destacado, .btn {
+    font-family: 'Barlow', sans-serif;
 }
 
 /* Contenedor principal */
