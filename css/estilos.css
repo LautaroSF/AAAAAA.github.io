@@ -1,59 +1,196 @@
-/* === Estilos para Formularios del Ejercicio === */
-.caja-formulario, .caja-resultados {
-    background-color: #f9f9f9;
+/* Importación de tipografía de Google para títulos y destacados */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap');
+
+/* Reset básico y variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Imagen de fondo en todas las páginas */
+    background-image: url('../img/fondo.png'); 
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #222;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif; /* Tipografía base para textos */
+    font-size: 16px;
+    
+    /* Centrado del contenedor principal usando Flexbox */
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0; /* Margen para visualizar el fondo */
+}
+
+/* Tipografía de Google SOLO en títulos y destacados */
+h1, h2, h3, header strong, blockquote, .destacado {
+    font-family: 'Oswald', sans-serif;
+}
+
+/* Contenedor principal */
+.contenedor-principal {
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 90%;
+    max-width: 1200px;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+}
+
+/* --- ENCABEZADO Y NAVEGACIÓN --- */
+header h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+header p {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+nav {
+    background-color: #333;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex; /* Menú horizontal con flexbox */
+    justify-content: center;
+}
+
+nav ul li a {
+    display: block;
+    padding: 1rem 2rem;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover, nav ul li a.activo {
+    background-color: #555;
+}
+
+/* --- ESTILOS DE CONTENIDO --- */
+blockquote {
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 2rem 0;
+    color: #555;
+    font-style: italic;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #333;
+    padding-bottom: 0.5rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ccc;
+    font-size: 0.9rem;
+}
+
+/* --- LAYOUTS ESPECÍFICOS --- */
+
+/* Página de Inicio: 3 Columnas */
+.layout-3-cols {
+    display: flex;
+    justify-content: space-between;
+}
+.layout-3-cols section {
+    width: 31%; /* 3 columnas del mismo ancho */
+}
+
+/* Página de Datos: 2 Columnas */
+.layout-2-cols {
+    display: flex;
+    justify-content: space-between;
+}
+.layout-2-cols aside {
+    width: 30%; /* Columna menor */
+    background-color: #f4f4f4;
     padding: 1.5rem;
     border-radius: 8px;
-    border: 1px solid #ddd;
-    margin-bottom: 1.5rem;
+}
+.layout-2-cols article {
+    width: 65%; /* Columna mayor */
 }
 
-form {
+/* --- GALERÍA JS --- */
+#contenedor-galeria {
     display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    margin-top: 1rem;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
-fieldset {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
+.obra-card {
+    width: 30%;
+    background: #eee;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.obra-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    background-color: #333;
+    color: white;
     border: none;
-}
-
-label {
-    font-weight: bold;
-    color: #444;
-}
-
-input {
-    padding: 0.5rem;
-    font-size: 1rem;
-    border: 1px solid #ccc;
+    cursor: pointer;
+    font-family: 'Oswald', sans-serif;
     border-radius: 4px;
 }
+.btn:hover { background-color: #555; }
+.btn:disabled { background-color: #aaa; cursor: not-allowed; }
 
-input:focus {
-    outline: none;
-    border-color: #222;
+/* Funcionalidad de cambio de diseño (Galería) */
+.galeria-alternativa .obra-card {
+    width: 45%; /* Imágenes más grandes */
+    background: #333;
+    color: #fff;
 }
 
-button:disabled, fieldset:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
+/* --- FORMULARIOS (Ejercicio) --- */
+.form-group {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
 }
-
-#area-resultados {
-    margin-top: 1.5rem;
+.form-group label { font-weight: bold; margin-bottom: 0.5rem; }
+.form-group input { padding: 0.5rem; width: 100%; border: 1px solid #ccc; }
+#resultados-ejercicio {
+    background: #e8f5e9;
     padding: 1rem;
-    background-color: #fff;
-    border-left: 4px solid #222;
-    display: none; /* Se mostrará con JS */
+    margin-top: 1rem;
+    border-radius: 5px;
+    display: none;
 }
-
-#btn-reiniciar {
-    background-color: #d9534f;
-    margin-top: 2rem;
-    width: 100%;
-}
-#btn-reiniciar:hover:not(:disabled) { background-color: #c9302c; }
