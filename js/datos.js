@@ -12,12 +12,22 @@ const datosCuriosos = [
     "Utiliza la luz como lenguaje poético para explorar temas de identidad, memoria y presencia."
 ];
 
+// 1. Array con los datos
+const datosCuriosos = [
+    "Rafael Lozano-Hemmer es un artista mexicano-canadiense...",
+    "Su obra combina tecnología avanzada como sensores...",
+    // ... resto de los datos ...
+];
+
+// 2. Captura de los elementos del HTML
 const btnDatoCurioso = document.getElementById('btn-dato-curioso');
 const displayDatoCurioso = document.getElementById('display-dato-curioso');
 
+// 3. Evento al hacer clic en el botón
 btnDatoCurioso.addEventListener('click', function() {
-    // Math.random genera un número entre 0 y 1. Se multiplica por el largo del array y se redondea hacia abajo.
     let indiceAleatorio = Math.floor(Math.random() * datosCuriosos.length);
+    
+    // 4. Se reemplaza el contenido del <div> en el HTML con el nuevo dato
     displayDatoCurioso.textContent = datosCuriosos[indiceAleatorio];
 });
 
