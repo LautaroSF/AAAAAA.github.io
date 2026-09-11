@@ -2,13 +2,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería | Rafael Lozano-Hemmer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/estilos.css">
 </head>
 <body>
     <div class="contenedor-principal">
         <header>
+            <h1>Galería de Obras</h1>
             <nav>
                 <ul>
                     <li><a href="../index.html">Inicio</a></li>
@@ -18,8 +19,8 @@
             </nav>
         </header>
         
-        <main class="dos-columnas">
-            <section class="columna-menor">
+        <main>
+            <section>
                 <h2>Obras y conceptos clave</h2>
                 <ul>
                     <li>Pulse Room</li>
@@ -29,13 +30,13 @@
                     <li>Interactividad</li>
                     <li>Arte en espacio público</li>
                 </ul>
-                <button id="btn-diseno">Cambiar Diseño</button>
             </section>
             
-            <!-- Aquí JavaScript inyectará las obras -->
-            <section class="columna-mayor" id="contenedor-galeria">
-                <h2>Galería de Obras</h2>
-                <!-- Las imágenes se cargarán dinámicamente desde JS -->
+            <section>
+                <h2>Obras Seleccionadas</h2>
+                <button id="btn-cambiar-diseno" class="btn">Cambiar Diseño (Tamaño/Color)</button>
+                <!-- JS inyectará la galería aquí -->
+                <div id="contenedor-galeria"></div> 
             </section>
         </main>
             
@@ -44,7 +45,7 @@
         </footer>
     </div>
 
-    <!-- Enlace al archivo JS -->
+    <!-- Archivo JS único y necesario para esta página -->
     <script src="../js/galeria.js"></script>
 </body>
 </html>
